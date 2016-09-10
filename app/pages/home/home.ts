@@ -9,19 +9,22 @@ export class HomePage {
     public base64Image: string;
 
     constructor(private navCtrl: NavController) {
-
+        this.base64Image = "https://placehold.it/150x150";
     }
     public takePicture(){
-        Camera.getPicture({
-            destinationType: 0,
-            targetWidth: 1000,
-            targetHeight: 1000
-        }).then((imageData) => {
+
+        watsonConnection();
+        /*
+        Camera.getPicture({}).then((imageData) => {
             // imageData is a base64 encoded string
-            this.base64Image = "data:image/jpeg;base64," + imageData;
+            this.base64Image = imageData;
+
+
+
         }, (err) => {
             this.base64Image = err;
         });
+        */
     }
-
 }
+declare function watsonConnection(): void;
